@@ -1,0 +1,21 @@
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharp\bin\Debug\CfdiSharp.dll
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharp\bin\Debug\CfdiSharp.pdb
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.dll
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.Properties.Resources.resources
+C:\Users\user\Documents\Visual Studio 2013\Projects\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\bin\Debug\CfdiSharp.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\bin\Debug\CfdiSharp.pdb
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.pdb
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharp\bin\Debug\CfdiSharp.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharp\bin\Debug\CfdiSharp.pdb
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharp\obj\Debug\CfdiSharp.pdb

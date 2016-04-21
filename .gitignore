@@ -45,5 +45,6 @@ Temporary Items
 *.dll
 *.pdb
 
-bin
-debug
+CfdiSharp/bin
+CfdiSharp/debug
+TestResults

@@ -1,0 +1,23 @@
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharpTest\obj\Debug\CfdiSharpTest.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharpTest.dll
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharpTest.pdb
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharp.dll
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharp.pdb
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharpTest\obj\Debug\CfdiSharpTest.dll
+c:\users\user\documents\visual studio 2013\Projects\CfdiSharp\CfdiSharpTest\obj\Debug\CfdiSharpTest.pdb
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharpTest.dll.config
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharpTest.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharpTest.pdb
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharp.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharp.pdb
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharpTest\obj\Debug\CfdiSharpTest.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharpTest\obj\Debug\CfdiSharpTest.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharpTest\obj\Debug\CfdiSharpTest.pdb
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharpTest.dll.config
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharpTest.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharpTest.pdb
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharp.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharpTest\bin\Debug\CfdiSharp.pdb
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharpTest\obj\Debug\CfdiSharpTest.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharpTest\obj\Debug\CfdiSharpTest.dll
+C:\Users\user\Documents\GitHub\CfdiSharp\CfdiSharp\CfdiSharpTest\obj\Debug\CfdiSharpTest.pdb

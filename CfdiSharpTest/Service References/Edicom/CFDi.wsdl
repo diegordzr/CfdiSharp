@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://cfdi.service.ediwinws.edicom.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://cfdi.service.ediwinws.edicom.com" targetNamespace="http://cfdi.service.ediwinws.edicom.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://cfdi.service.ediwinws.edicom.com">
+      <xsd:element name="getUUID">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getUUIDResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getUUIDReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="CFDiException">
+        <xsd:sequence>
+          <xsd:element name="cod" type="xsd:int" />
+          <xsd:element name="text" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="fault" type="impl:CFDiException" />
+      <xsd:element name="changePassword">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="newPassword" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="changePasswordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="changePasswordReturn" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTimbreCfdiRetencionesTest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTimbreCfdiRetencionesTestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTimbreCfdiRetencionesTestReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdi">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getCfdiReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTimbreCfdiTest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTimbreCfdiTestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTimbreCfdiTestReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelaCFDiRetenciones">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="rfc" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" name="uuid" type="xsd:string" />
+            <xsd:element name="pfx" type="xsd:base64Binary" />
+            <xsd:element name="pfxPassword" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelaCFDiRetencionesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cancelaCFDiRetencionesReturn" type="impl:CancelaResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOf_xsd_string">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CancelaResponse">
+        <xsd:sequence>
+          <xsd:element name="ack" nillable="true" type="xsd:string" />
+          <xsd:element name="text" nillable="true" type="xsd:string" />
+          <xsd:element name="uuids" nillable="true" type="impl:ArrayOf_xsd_string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getCfdiRetencionesTest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiRetencionesTestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getCfdiRetencionesTestReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelaCFDiRetencionesSigned">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="sign" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelaCFDiRetencionesSignedResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cancelaCFDiRetencionesSignedReturn" type="impl:CancelaResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="exportCfdi">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="rfc" type="xsd:string" />
+            <xsd:element name="iniDate" type="xsd:dateTime" />
+            <xsd:element name="endDate" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="exportCfdiResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="exportCfdiReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getUUIDTest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getUUIDTestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getUUIDTestReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTimbreCfdi">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTimbreCfdiResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTimbreCfdiReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiTest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiTestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getCfdiTestReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelaCFDi">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="rfc" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" name="uuid" type="xsd:string" />
+            <xsd:element name="pfx" type="xsd:base64Binary" />
+            <xsd:element name="pfxPassword" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelaCFDiResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cancelaCFDiReturn" type="impl:CancelaResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTimbreCfdiRetenciones">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getTimbreCfdiRetencionesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTimbreCfdiRetencionesReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelaCFDiSigned">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="sign" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelaCFDiSignedResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cancelaCFDiSignedReturn" type="impl:CancelaResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiRetenciones">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="file" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiRetencionesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getCfdiRetencionesReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiFromUUID">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element name="rfc" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" name="uuid" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiFromUUIDResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getCfdiFromUUIDReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiAck">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="user" type="xsd:string" />
+            <xsd:element name="password" type="xsd:string" />
+            <xsd:element maxOccurs="unbounded" name="uuid" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCfdiAckResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getCfdiAckReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="cancelaCFDiRetencionesResponse">
+    <wsdl:part name="parameters" element="impl:cancelaCFDiRetencionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTimbreCfdiTestResponse">
+    <wsdl:part name="parameters" element="impl:getTimbreCfdiTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiFromUUIDResponse">
+    <wsdl:part name="parameters" element="impl:getCfdiFromUUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUUIDResponse">
+    <wsdl:part name="parameters" element="impl:getUUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTimbreCfdiRetencionesResponse">
+    <wsdl:part name="parameters" element="impl:getTimbreCfdiRetencionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiResponse">
+    <wsdl:part name="parameters" element="impl:getCfdiResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTimbreCfdiTestRequest">
+    <wsdl:part name="parameters" element="impl:getTimbreCfdiTest" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiTestResponse">
+    <wsdl:part name="parameters" element="impl:getCfdiTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUUIDRequest">
+    <wsdl:part name="parameters" element="impl:getUUID" />
+  </wsdl:message>
+  <wsdl:message name="cancelaCFDiSignedRequest">
+    <wsdl:part name="parameters" element="impl:cancelaCFDiSigned" />
+  </wsdl:message>
+  <wsdl:message name="getTimbreCfdiRequest">
+    <wsdl:part name="parameters" element="impl:getTimbreCfdi" />
+  </wsdl:message>
+  <wsdl:message name="cancelaCFDiSignedResponse">
+    <wsdl:part name="parameters" element="impl:cancelaCFDiSignedResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiRetencionesTestRequest">
+    <wsdl:part name="parameters" element="impl:getCfdiRetencionesTest" />
+  </wsdl:message>
+  <wsdl:message name="cancelaCFDiResponse">
+    <wsdl:part name="parameters" element="impl:cancelaCFDiResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTimbreCfdiResponse">
+    <wsdl:part name="parameters" element="impl:getTimbreCfdiResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiTestRequest">
+    <wsdl:part name="parameters" element="impl:getCfdiTest" />
+  </wsdl:message>
+  <wsdl:message name="getUUIDTestResponse">
+    <wsdl:part name="parameters" element="impl:getUUIDTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="changePasswordRequest">
+    <wsdl:part name="parameters" element="impl:changePassword" />
+  </wsdl:message>
+  <wsdl:message name="exportCfdiRequest">
+    <wsdl:part name="parameters" element="impl:exportCfdi" />
+  </wsdl:message>
+  <wsdl:message name="getTimbreCfdiRetencionesRequest">
+    <wsdl:part name="parameters" element="impl:getTimbreCfdiRetenciones" />
+  </wsdl:message>
+  <wsdl:message name="cancelaCFDiRetencionesSignedRequest">
+    <wsdl:part name="parameters" element="impl:cancelaCFDiRetencionesSigned" />
+  </wsdl:message>
+  <wsdl:message name="cancelaCFDiRetencionesRequest">
+    <wsdl:part name="parameters" element="impl:cancelaCFDiRetenciones" />
+  </wsdl:message>
+  <wsdl:message name="CFDiException">
+    <wsdl:part name="fault" element="impl:fault" />
+  </wsdl:message>
+  <wsdl:message name="getUUIDTestRequest">
+    <wsdl:part name="parameters" element="impl:getUUIDTest" />
+  </wsdl:message>
+  <wsdl:message name="cancelaCFDiRequest">
+    <wsdl:part name="parameters" element="impl:cancelaCFDi" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiRetencionesTestResponse">
+    <wsdl:part name="parameters" element="impl:getCfdiRetencionesTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiAckResponse">
+    <wsdl:part name="parameters" element="impl:getCfdiAckResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiAckRequest">
+    <wsdl:part name="parameters" element="impl:getCfdiAck" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiRetencionesResponse">
+    <wsdl:part name="parameters" element="impl:getCfdiRetencionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="exportCfdiResponse">
+    <wsdl:part name="parameters" element="impl:exportCfdiResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiRequest">
+    <wsdl:part name="parameters" element="impl:getCfdi" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiFromUUIDRequest">
+    <wsdl:part name="parameters" element="impl:getCfdiFromUUID" />
+  </wsdl:message>
+  <wsdl:message name="getCfdiRetencionesRequest">
+    <wsdl:part name="parameters" element="impl:getCfdiRetenciones" />
+  </wsdl:message>
+  <wsdl:message name="changePasswordResponse">
+    <wsdl:part name="parameters" element="impl:changePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTimbreCfdiRetencionesTestRequest">
+    <wsdl:part name="parameters" element="impl:getTimbreCfdiRetencionesTest" />
+  </wsdl:message>
+  <wsdl:message name="getTimbreCfdiRetencionesTestResponse">
+    <wsdl:part name="parameters" element="impl:getTimbreCfdiRetencionesTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelaCFDiRetencionesSignedResponse">
+    <wsdl:part name="parameters" element="impl:cancelaCFDiRetencionesSignedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CFDi">
+    <wsdl:operation name="getUUID">
+      <wsdl:input name="getUUIDRequest" message="impl:getUUIDRequest" />
+      <wsdl:output name="getUUIDResponse" message="impl:getUUIDResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="changePassword">
+      <wsdl:input name="changePasswordRequest" message="impl:changePasswordRequest" />
+      <wsdl:output name="changePasswordResponse" message="impl:changePasswordResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimbreCfdiRetencionesTest">
+      <wsdl:input name="getTimbreCfdiRetencionesTestRequest" message="impl:getTimbreCfdiRetencionesTestRequest" />
+      <wsdl:output name="getTimbreCfdiRetencionesTestResponse" message="impl:getTimbreCfdiRetencionesTestResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getCfdi">
+      <wsdl:input name="getCfdiRequest" message="impl:getCfdiRequest" />
+      <wsdl:output name="getCfdiResponse" message="impl:getCfdiResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimbreCfdiTest">
+      <wsdl:input name="getTimbreCfdiTestRequest" message="impl:getTimbreCfdiTestRequest" />
+      <wsdl:output name="getTimbreCfdiTestResponse" message="impl:getTimbreCfdiTestResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelaCFDiRetenciones">
+      <wsdl:input name="cancelaCFDiRetencionesRequest" message="impl:cancelaCFDiRetencionesRequest" />
+      <wsdl:output name="cancelaCFDiRetencionesResponse" message="impl:cancelaCFDiRetencionesResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiRetencionesTest">
+      <wsdl:input name="getCfdiRetencionesTestRequest" message="impl:getCfdiRetencionesTestRequest" />
+      <wsdl:output name="getCfdiRetencionesTestResponse" message="impl:getCfdiRetencionesTestResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelaCFDiRetencionesSigned">
+      <wsdl:input name="cancelaCFDiRetencionesSignedRequest" message="impl:cancelaCFDiRetencionesSignedRequest" />
+      <wsdl:output name="cancelaCFDiRetencionesSignedResponse" message="impl:cancelaCFDiRetencionesSignedResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="exportCfdi">
+      <wsdl:input name="exportCfdiRequest" message="impl:exportCfdiRequest" />
+      <wsdl:output name="exportCfdiResponse" message="impl:exportCfdiResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getUUIDTest">
+      <wsdl:input name="getUUIDTestRequest" message="impl:getUUIDTestRequest" />
+      <wsdl:output name="getUUIDTestResponse" message="impl:getUUIDTestResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimbreCfdi">
+      <wsdl:input name="getTimbreCfdiRequest" message="impl:getTimbreCfdiRequest" />
+      <wsdl:output name="getTimbreCfdiResponse" message="impl:getTimbreCfdiResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiTest">
+      <wsdl:input name="getCfdiTestRequest" message="impl:getCfdiTestRequest" />
+      <wsdl:output name="getCfdiTestResponse" message="impl:getCfdiTestResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelaCFDi">
+      <wsdl:input name="cancelaCFDiRequest" message="impl:cancelaCFDiRequest" />
+      <wsdl:output name="cancelaCFDiResponse" message="impl:cancelaCFDiResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getTimbreCfdiRetenciones">
+      <wsdl:input name="getTimbreCfdiRetencionesRequest" message="impl:getTimbreCfdiRetencionesRequest" />
+      <wsdl:output name="getTimbreCfdiRetencionesResponse" message="impl:getTimbreCfdiRetencionesResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelaCFDiSigned">
+      <wsdl:input name="cancelaCFDiSignedRequest" message="impl:cancelaCFDiSignedRequest" />
+      <wsdl:output name="cancelaCFDiSignedResponse" message="impl:cancelaCFDiSignedResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiRetenciones">
+      <wsdl:input name="getCfdiRetencionesRequest" message="impl:getCfdiRetencionesRequest" />
+      <wsdl:output name="getCfdiRetencionesResponse" message="impl:getCfdiRetencionesResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiFromUUID">
+      <wsdl:input name="getCfdiFromUUIDRequest" message="impl:getCfdiFromUUIDRequest" />
+      <wsdl:output name="getCfdiFromUUIDResponse" message="impl:getCfdiFromUUIDResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiAck">
+      <wsdl:input name="getCfdiAckRequest" message="impl:getCfdiAckRequest" />
+      <wsdl:output name="getCfdiAckResponse" message="impl:getCfdiAckResponse" />
+      <wsdl:fault name="CFDiException" message="impl:CFDiException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CFDiSoapBinding" type="impl:CFDi">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getUUID">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getUUIDRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUUIDResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="changePassword">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="changePasswordRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="changePasswordResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTimbreCfdiRetencionesTest">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTimbreCfdiRetencionesTestRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTimbreCfdiRetencionesTestResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCfdi">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCfdiRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCfdiResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTimbreCfdiTest">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTimbreCfdiTestRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTimbreCfdiTestResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelaCFDiRetenciones">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cancelaCFDiRetencionesRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelaCFDiRetencionesResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiRetencionesTest">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCfdiRetencionesTestRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCfdiRetencionesTestResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelaCFDiRetencionesSigned">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cancelaCFDiRetencionesSignedRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelaCFDiRetencionesSignedResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="exportCfdi">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="exportCfdiRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="exportCfdiResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUUIDTest">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getUUIDTestRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getUUIDTestResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTimbreCfdi">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTimbreCfdiRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTimbreCfdiResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiTest">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCfdiTestRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCfdiTestResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelaCFDi">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cancelaCFDiRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelaCFDiResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTimbreCfdiRetenciones">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTimbreCfdiRetencionesRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTimbreCfdiRetencionesResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cancelaCFDiSigned">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cancelaCFDiSignedRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelaCFDiSignedResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiRetenciones">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCfdiRetencionesRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCfdiRetencionesResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiFromUUID">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCfdiFromUUIDRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCfdiFromUUIDResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCfdiAck">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCfdiAckRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCfdiAckResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CFDiException">
+        <wsdlsoap:fault use="literal" name="CFDiException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CFDiService">
+    <wsdl:port name="CFDi" binding="impl:CFDiSoapBinding">
+      <wsdlsoap:address location="https://cfdiws.sedeb2b.com/EdiwinWS/services/CFDi" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
