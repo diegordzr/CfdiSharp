@@ -111,7 +111,15 @@ namespace CfdiSharp.Comprobante
         {
             var ns = new XmlSerializerNamespaces();
             ns.Add("cfdi", "http://www.sat.gob.mx/cfd/3");
+
             ns.Add("donat", "http://www.sat.gob.mx/donat");
+            ns.Add("acreditamiento", "http://www.sat.gob.mx/acreditamiento");
+            ns.Add("aerolineas", "http://www.sat.gob.mx/aerolineas");
+            ns.Add("certificadodestruccion", "http://www.sat.gob.mx/certificadodestruccion");
+            ns.Add("registrofiscal", "http://www.sat.gob.mx/registrofiscal");
+            ns.Add("ComercioExterior", "http://www.sat.gob.mx/ComercioExterior");
+            ns.Add("consumodecombustibles", "http://www.sat.gob.mx/consumodecombustibles");
+
             ns.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
             return Util.Util.Serialize(this, ns);
         }

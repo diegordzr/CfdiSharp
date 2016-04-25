@@ -1,8 +1,6 @@
-﻿using System;
 using System.Xml.Serialization;
-using CfdiSharp.Comprobante;
 
-namespace CfdiSharp.Complementos
+namespace CfdiSharp.Complementos.donat11
 {
     public class Donatarias
     {
@@ -12,7 +10,7 @@ namespace CfdiSharp.Complementos
             SchemaLocation = "http://www.sat.gob.mx/donat http://www.sat.gob.mx/sitio_internet/cfd/donat/donat11.xsd";
         }
 
-        [XmlAttributeAttribute("schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        [XmlAttribute("schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
         public string SchemaLocation { get; set; }
 
         [XmlAttribute("version")]
