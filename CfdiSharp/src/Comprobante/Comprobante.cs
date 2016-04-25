@@ -16,6 +16,44 @@ namespace CfdiSharp.Comprobante
             SchemaLocation = "http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd";
         }
 
+        public Comprobante(string xml)
+        {
+            var c = Util.Util.Derialize<Comprobante>(xml);
+            this.Version = c.Version;
+            this.Total = c.Total;
+            this.TipoDeComprobante = c.TipoDeComprobante;
+            this.TipoCambio = c.TipoCambio;
+            this.SubTotal = c.SubTotal;
+            this.SerieFolioFiscalOrig = c.SerieFolioFiscalOrig;
+            this.Serie = c.Serie;
+            this.Sello = c.Sello;
+            this.SchemaLocation = c.SchemaLocation;
+            this.Receptor = c.Receptor;
+            this.NumCtaPago = c.NumCtaPago;
+            this.NoCertificado = c.NoCertificado;
+            this.MotivoDescuento = c.MotivoDescuento;
+            this.MontoFolioFiscalOrigSpecified = c.MontoFolioFiscalOrigSpecified;
+            this.MontoFolioFiscalOrig = c.MontoFolioFiscalOrig;
+            this.Moneda = c.Moneda;
+            this.MetodoDePago = c.MetodoDePago;
+            this.LugarExpedicion = c.LugarExpedicion;
+            this.Impuestos = c.Impuestos;
+            this.FormaDePago = c.FormaDePago;
+            this.FolioFiscalOrig = c.FolioFiscalOrig;
+            this.Folio = c.Folio;
+            this.FechaFolioFiscalOrigSpecified = c.FechaFolioFiscalOrigSpecified;
+            this.FechaFolioFiscalOrig = c.FechaFolioFiscalOrig;
+            this.Fecha = c.Fecha;
+            this.Emisor = c.Emisor;
+            this.DescuentoSpecified = c.DescuentoSpecified;
+            this.Descuento = c.Descuento;
+            this.CondicionesDePago = c.CondicionesDePago;
+            this.Conceptos = c.Conceptos;
+            this.Complemento = c.Complemento;
+            this.Certificado = c.Certificado;
+            this.Addenda = c.Addenda;
+        }
+
         [XmlAttributeAttribute("schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
         public string SchemaLocation { get; set; }
 

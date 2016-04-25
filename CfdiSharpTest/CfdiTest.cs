@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using CfdiSharp.Complementos.donat11;
-using CfdiSharp.Comprobante;
-using CfdiSharp.src.Comprobante;
 using CfdiSharp.Util;
 using CfdiSharpTest.Edicom;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,6 +12,9 @@ namespace CfdiSharpTest
         [TestMethod]
         public void TestCreateCfdi()
         {
+            //var text = File.ReadAllText(@"C:\Users\user\Desktop\cfdi_test.xml", Encoding.UTF8);
+            //var c = new Comprobante(text);
+
             var comp = CfdiCreator.CreateComprobante();
             CfdiCreator.SetSello(comp);
 

@@ -47,6 +47,22 @@ namespace CfdiSharp.Util
                 }
             }
 
+            public static T Derialize<T>(string text)
+            {
+                //var serializer = new XmlSerializer(typeof(T));
+                //using (var reader = new StreamReader(text))
+                //{
+                //    var obj = (T) serializer.Deserialize(reader);
+                //    reader.Close();
+                //    return obj;
+                //}
+                var serializer = new XmlSerializer(typeof(T));
+                using (Stream stream = new MemoryStream(Encoding.UTF8.GetBytes(text)))
+                {
+                    return (T)serializer.Deserialize(stream);
+                }
+            }
+
             private sealed class Utf8StringWriter : StringWriter
             {
                 public override Encoding Encoding { get { return Encoding.UTF8; } }
