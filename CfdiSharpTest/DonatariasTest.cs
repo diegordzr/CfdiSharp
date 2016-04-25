@@ -16,7 +16,7 @@ namespace CfdiSharpTest
             donatarias.NoAutorizacion = "1234";
 
 
-            comp.Complemento.Any = new object[] { donatarias };
+            comp.Complemento.Any = new ComplementoCfdi[] { donatarias };
             
         }
 

@@ -197,6 +197,7 @@
     <Compile Include="src\Complementos\valesdedespensa\ValesDeDespensa.cs" />
     <Compile Include="src\Complementos\vehiculousado\VehiculoUsado.cs" />
     <Compile Include="src\Complementos\ventavehiculos11\VentaVehiculos.cs" />
+    <Compile Include="src\Comprobante\ComplementoCfdi.cs" />
     <Compile Include="src\Comprobante\Comprobante.cs" />
     <Compile Include="src\Comprobante\Addenda.cs" />
     <Compile Include="src\Comprobante\Catalogos.cs" />

@@ -69,12 +69,13 @@ namespace CfdiSharp.Util
 
                     var doc = new XmlDocument();
                     doc.LoadXml(xml);
-                    const string esquemaCfdi = "http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd";
-                    const string esquemaDonat = "http://www.sat.gob.mx/sitio_internet/cfd/donat/donat11.xsd";
+
                     //System.Xml.Schema
                     var eventHandler = new ValidationEventHandler(ValidationCallback);
-                    doc.Schemas.Add("http://www.sat.gob.mx/cfd/3", esquemaCfdi);
-                    doc.Schemas.Add("http://www.sat.gob.mx/donat", esquemaDonat);
+                    doc.Schemas.Add("http://www.sat.gob.mx/cfd/3", "http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd");
+                    doc.Schemas.Add("http://www.sat.gob.mx/donat", "http://www.sat.gob.mx/sitio_internet/cfd/donat/donat11.xsd");
+
+
                     doc.Validate(eventHandler);
                     return _success;
                 }

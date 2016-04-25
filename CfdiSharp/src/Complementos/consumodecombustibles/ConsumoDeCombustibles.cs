@@ -1,10 +1,11 @@
 using System.Xml.Serialization;
+using CfdiSharp.Comprobante;
 
 namespace CfdiSharp.Complementos.consumodecombustibles
 {
     [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/consumodecombustibles")]
     [XmlRoot(Namespace = "http://www.sat.gob.mx/consumodecombustibles", IsNullable = false)]
-    public class ConsumoDeCombustibles
+    public class ConsumoDeCombustibles : ComplementoCfdi
     {
         public ConsumoDeCombustibles()
         {
@@ -12,10 +13,6 @@ namespace CfdiSharp.Complementos.consumodecombustibles
             TipoOperacion = "monedero electrónico";
             SchemaLocation = "http://www.sat.gob.mx/consumodecombustibles http://www.sat.gob.mx/sitio_internet/cfd/consumodecombustibles/consumodecombustibles.xsd";
         }
-
-        [XmlAttribute("schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
-        public string SchemaLocation { get; set; }
-
 
         [XmlArrayItem("ConceptoConsumoDeCombustibles", IsNullable = false)]
         public Concepto[] Conceptos { get; set; }

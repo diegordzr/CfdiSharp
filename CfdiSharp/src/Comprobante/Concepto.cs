@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+using CfdiSharp.Complementos.AcreditamientoIEPS10;
 
 namespace CfdiSharp.Comprobante
 {
     public class Concepto
     {
-        /// <comentarios/>
         [XmlElement("ComplementoConcepto", typeof(ComplementoConcepto))]
         [XmlElement("CuentaPredial", typeof(CuentaPredial))]
         [XmlElement("InformacionAduanera", typeof(InformacionAduanera))]

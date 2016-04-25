@@ -1,19 +1,17 @@
 using System.Xml.Serialization;
+using CfdiSharp.Comprobante;
 
 namespace CfdiSharp.Complementos.certificadodedestruccion
 {
     [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/certificadodestruccion")]
     [XmlRoot(Namespace = "http://www.sat.gob.mx/certificadodestruccion", IsNullable = false)]
-    public class CertificadoDeDestruccion
+    public class CertificadoDeDestruccion : ComplementoCfdi
     {
         public CertificadoDeDestruccion()
         {
             Version = "1.0";
             SchemaLocation = "http://www.sat.gob.mx/certificadodestruccion http://www.sat.gob.mx/sitio_internet/cfd/certificadodestruccion/certificadodedestruccion.xsd";
         }
-
-        [XmlAttribute("schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
-        public string SchemaLocation { get; set; }
 
         public VehiculoDestruido VehiculoDestruido { get; set; }
 

@@ -1,19 +1,17 @@
 using System.Xml.Serialization;
+using CfdiSharp.Comprobante;
 
 namespace CfdiSharp.Complementos.ComercioExterior10
 {
     [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/ComercioExterior")]
     [XmlRootAttribute(Namespace = "http://www.sat.gob.mx/ComercioExterior", IsNullable = false)]
-    public class ComercioExterior
+    public class ComercioExterior : ComplementoCfdi
     {
         public ComercioExterior()
         {
             Version = "1.0";
             SchemaLocation = "http://www.sat.gob.mx/ComercioExterior http://www.sat.gob.mx/informacion_fiscal/factura_electronica/Documents/ComercioExterior10.xsd";
         }
-
-        [XmlAttribute("schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
-        public string SchemaLocation { get; set; }
 
 
         public Emisor Emisor { get; set; }
