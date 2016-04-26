@@ -2,8 +2,6 @@ using System.Xml.Serialization;
 
 namespace CfdiSharp.Complementos.detallista
 {
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    [XmlRoot(Namespace = "http://www.sat.gob.mx/detallista", IsNullable = false)]
     public class Detallista
     {
         public Detallista()
@@ -12,1353 +10,1669 @@ namespace CfdiSharp.Complementos.detallista
             ContentVersion = "1.3.1";
             DocumentStructureVersion = "AMC8.1";
         }
+        /// 
+        [XmlElement("requestForPaymentIdentification")]
+        public DetallistaRequestForPaymentIdentification RequestForPaymentIdentification { get; set; }
 
-
-        public RequestForPaymentIdentification RequestForPaymentIdentification { get; set; }
-
-
+        /// 
         [XmlElement("specialInstruction")]
-        public SpecialInstruction[] SpecialInstruction { get; set; }
+        public DetallistaSpecialInstruction[] SpecialInstruction { get; set; }
 
+        /// 
+        [XmlElement("orderIdentification")]
+        public DetallistaOrderIdentification OrderIdentification { get; set; }
 
-        public OrderIdentification OrderIdentification { get; set; }
+        /// 
+        [XmlArrayItemAttribute("referenceIdentification", IsNullable = false)]
+        public DetallistaReferenceIdentification[] AdditionalInformation { get; set; }
 
+        /// 
+        [XmlElement("DeliveryNote")]
+        public DetallistaDeliveryNote DeliveryNote { get; set; }
 
-        [XmlArrayItem("referenceIdentification", IsNullable = false)]
-        public ReferenceIdentification[] AdditionalInformation { get; set; }
+        /// 
+        [XmlElement("buyer")]
+        public DetallistaBuyer Buyer { get; set; }
 
+        /// 
+        [XmlElement("seller")]
+        public DetallistaSeller Seller { get; set; }
 
-        public DeliveryNote DeliveryNote { get; set; }
+        /// 
+        [XmlElement("shipTo")]
+        public DetallistaShipTo ShipTo { get; set; }
 
+        /// 
+        [XmlElement("InvoiceCreator")]
+        public DetallistaInvoiceCreator InvoiceCreator { get; set; }
 
-        public Buyer Buyer { get; set; }
+        /// 
+        [XmlElementAttribute("Customs")]
+        public DetallistaCustoms[] Customs { get; set; }
 
+        /// 
+        [XmlElementAttribute("currency")]
+        public DetallistaCurrency[] Currency { get; set; }
 
-        public Seller Seller { get; set; }
+        /// 
+        [XmlElement("paymentTerms")]
+        public DetallistaPaymentTerms PaymentTerms { get; set; }
 
+        /// 
+        [XmlElement("shipmentDetail")]
+        public DetallistaShipmentDetail ShipmentDetail { get; set; }
 
-        public ShipTo ShipTo { get; set; }
+        /// 
+        [XmlElementAttribute("allowanceCharge")]
+        public DetallistaAllowanceCharge[] AllowanceCharge { get; set; }
 
+        /// 
+        [XmlElementAttribute("lineItem")]
+        public DetallistaLineItem[] LineItem { get; set; }
 
-        public InvoiceCreator InvoiceCreator { get; set; }
+        /// 
+        [XmlElement("totalAmount")]
+        public DetallistaTotalAmount TotalAmount { get; set; }
 
+        /// 
+        [XmlElementAttribute("TotalAllowanceCharge")]
+        public DetallistaTotalAllowanceCharge[] TotalAllowanceCharge { get; set; }
 
-        [XmlElement("Customs")]
-        public Customs[] Customs { get; set; }
-
-
-        [XmlElement("currency")]
-        public Currency[] Currency { get; set; }
-
-
-        public PaymentTerms PaymentTerms { get; set; }
-
-
-        public ShipmentDetail ShipmentDetail { get; set; }
-
-
-        [XmlElement("allowanceCharge")]
-        public AllowanceCharge[] AllowanceCharge { get; set; }
-
-
-        [XmlElement("lineItem")]
-        public LineItem[] LineItem { get; set; }
-
-
-        public TotalAmount TotalAmount { get; set; }
-
-
-        [XmlElement("TotalAllowanceCharge")]
-        public TotalAllowanceCharge[] TotalAllowanceCharge { get; set; }
-
-
-        [XmlAttribute("type")]
+        /// 
+        [XmlAttributeAttribute("type")]
         public string Type { get; set; }
 
-
-        [XmlAttribute("contentVersion")]
+        /// 
+        [XmlAttributeAttribute("contentVersion")]
         public string ContentVersion { get; set; }
 
-
-        [XmlAttribute("documentStructureVersion")]
+        /// 
+        [XmlAttributeAttribute("documentStructureVersion")]
         public string DocumentStructureVersion { get; set; }
 
-
-        [XmlAttribute("documentStatus")]
-        public DocumentStatus DocumentStatus { get; set; }
+        /// 
+        [XmlAttributeAttribute("documentStatus")]
+        public DetallistaDocumentStatus DocumentStatus { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum RequestForPaymentIdentificationEntityType
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaRequestForPaymentIdentification
     {
+        /// 
+        [XmlElement("entityType")]
+        public DetallistaRequestForPaymentIdentificationEntityType EntityType { get; set; }
+    }
+    /// 
 
-        [XmlEnum("INVOICE")]
-        Invoice,
 
-        [XmlEnum("DEBIT_NOTE")]
-        DebitNote,
 
-        [XmlEnum("CREDIT_NOTE")]
-        CreditNote,
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaSpecialInstruction
+    {
+        /// 
+        [XmlElementAttribute("text")]
+        public string[] Text { get; set; }
 
-        [XmlEnum("LEASE_RECEIPT")]
-        LeaseReceipt,
+        /// 
+        [XmlAttributeAttribute("code")]
+        public DetallistaSpecialInstructionCode Code { get; set; }
+    }
+    /// 
 
-        [XmlEnum("HONORARY_RECEIPT")]
-        HonoraryReceipt,
 
-        [XmlEnum("_INVOICE")]
-        _INVOICE,
 
-        [XmlEnum("TRANSPORT_DOCUMENT")]
-        TransportDocument,
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaOrderIdentification
+    {
+        /// 
+        [XmlElementAttribute("referenceIdentification")]
+        public DetallistaOrderIdentificationReferenceIdentification[] ReferenceIdentification { get; set; }
 
-        [XmlEnum("AUTO_INVOICE")]
-        AutoInvoice,
+        /// 
+        [XmlElementAttribute(DataType = "date")]
+        public System.DateTime ReferenceDate { get; set; }
+
+        /// 
+        [XmlIgnoreAttribute()]
+        public bool ReferenceDateSpecified { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum SpecialInstructionCode
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaOrderIdentificationReferenceIdentification
     {
+        public DetallistaOrderIdentificationReferenceIdentification()
+        {
+            Type = DetallistaOrderIdentificationReferenceIdentificationType.On;
+        }
+        /// 
+        [XmlAttributeAttribute("type")]
+        public DetallistaOrderIdentificationReferenceIdentificationType Type { get; set; }
 
-        [XmlEnum("AAB")]
-        Aab,
+        /// 
+        [XmlTextAttribute()]
+        public string Value { get; set; }
+    }
+    /// 
 
-        [XmlEnum("DUT")]
-        Dut,
 
-        [XmlEnum("PUR")]
-        Pur,
 
-        [XmlEnum("ZZZ")]
-        Zzz,
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaReferenceIdentification
+    {
+        /// 
+        [XmlAttributeAttribute("type")]
+        public DetallistaReferenceIdentificationType Type { get; set; }
+
+        /// 
+        [XmlTextAttribute()]
+        public string Value { get; set; }
+    }
+    /// 
+
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaDeliveryNote
+    {
+        /// 
+        [XmlElementAttribute("referenceIdentification")]
+        public string[] ReferenceIdentification { get; set; }
+
+        /// 
+        [XmlElementAttribute(DataType = "date")]
+        public System.DateTime ReferenceDate { get; set; }
+
+        /// 
+        [XmlIgnoreAttribute()]
+        public bool ReferenceDateSpecified { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum OrderIdentificationReferenceIdentificationType
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaBuyer
     {
+        /// 
+        [XmlElement("gln")]
+        public string Gln { get; set; }
 
-        [XmlEnum("ON")]
-        On,
+        /// 
+        [XmlElement("contactInformation")]
+        public DetallistaBuyerContactInformation ContactInformation { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum ReferenceIdentificationType
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaBuyerContactInformation
     {
-
-        [XmlEnum("AAE")]
-        Aae,
-
-        [XmlEnum("CK")]
-        Ck,
-
-        [XmlEnum("ACE")]
-        Ace,
-
-        [XmlEnum("ATZ")]
-        Atz,
-
-        [XmlEnum("DQ")]
-        Dq,
-
-        [XmlEnum("IV")]
-        Iv,
-
-        [XmlEnum("ON")]
-        On,
-
-        [XmlEnum("AWR")]
-        Awr,
+        /// 
+        [XmlElement("personOrDepartmentName")]
+        public DetallistaBuyerContactInformationPersonOrDepartmentName PersonOrDepartmentName { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum SellerAlternatePartyIdentificationType
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaBuyerContactInformationPersonOrDepartmentName
     {
-
-        [XmlEnum("SELLER_ASSIGNED_IDENTIFIER_FOR_A_PARTY")]
-        SellerAssignedIdentifierForAParty,
-
-        [XmlEnum("IEPS_REFERENCE")]
-        IepsReference,
-    }
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum InvoiceCreatorAlternatePartyIdentificationType
-    {
-
-        [XmlEnum("VA")]
-        Va,
-
-        [XmlEnum("IA")]
-        Ia,
-    }
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum CurrencyCurrencyFunction
-    {
-
-        [XmlEnum("BILLING_CURRENCY")]
-        BillingCurrency,
-
-        [XmlEnum("PRICE_CURRENCY")]
-        PriceCurrency,
-
-        [XmlEnum("PAYMENT_CURRENCY")]
-        PaymentCurrency,
+        /// 
+        [XmlElement("text")]
+        public string Text { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum CurrencyCurrencyIsoCode
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaSeller
     {
+        /// 
+        [XmlElement("gln")]
+        public string Gln { get; set; }
 
-        [XmlEnum("MXN")]
-        Mxn,
-
-        [XmlEnum("XEU")]
-        Xeu,
-
-        [XmlEnum("USD")]
-        Usd,
-    }
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum PaymentTermsNetPaymentPaymentTimePeriodTimePeriodDueTimePeriod
-    {
-
-        [XmlEnum("DAYS")]
-        Days,
+        /// 
+        [XmlElement("alternatePartyIdentification")]
+        public DetallistaSellerAlternatePartyIdentification AlternatePartyIdentification { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum PaymentTermsNetPaymentNetPaymentTermsType
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaSellerAlternatePartyIdentification
     {
+        /// 
+        [XmlAttributeAttribute("type")]
+        public DetallistaSellerAlternatePartyIdentificationType Type { get; set; }
 
-        [XmlEnum("BASIC_NET")]
-        BasicNet,
-
-        [XmlEnum("END_OF_MONTH")]
-        EndOfMonth,
-
-        [XmlEnum("BASIC_DISCOUNT_OFFERED")]
-        BasicDiscountOffered,
+        /// 
+        [XmlTextAttribute()]
+        public string Value { get; set; }
     }
+    /// 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum PaymentTermsDiscountPaymentDiscountType
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaShipTo
     {
+        /// 
+        [XmlElement("gln")]
+        public string Gln { get; set; }
 
-        [XmlEnum("ALLOWANCE_BY_PAYMENT_ON_TIME")]
-        AllowanceByPaymentOnTime,
-
-        [XmlEnum("SANCTION")]
-        Sanction,
-    }
-
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum PaymentTermsPaymentTermsEvent
-    {
-
-        [XmlEnum("DATE_OF_INVOICE")]
-        DateOfInvoice,
-
-        [XmlEnum("EFFECTIVE_DATE")]
-        EffectiveDate,
+        /// 
+        [XmlElement("nameAndAddress")]
+        public DetallistaShipToNameAndAddress NameAndAddress { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum PaymentTermsPaymentTermsRelationTime
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaShipToNameAndAddress
     {
+        /// 
+        [XmlElementAttribute("name")]
+        public string[] Name { get; set; }
 
-        [XmlEnum("REFERENCE_AFTER")]
-        ReferenceAfter,
-    }
+        /// 
+        [XmlElementAttribute("streetAddressOne")]
+        public string[] StreetAddressOne { get; set; }
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum AllowanceChargeSpecialServicesType
-    {
+        /// 
+        [XmlElementAttribute("city")]
+        public string[] City { get; set; }
 
-        [XmlEnum("AA")]
-        Aa,
-
-        [XmlEnum("AJ")]
-        Aj,
-
-        [XmlEnum("ADO")]
-        Ado,
-
-        [XmlEnum("ADT")]
-        Adt,
-
-        [XmlEnum("ADS")]
-        Ads,
-
-        [XmlEnum("ABZ")]
-        Abz,
-
-        [XmlEnum("DA")]
-        Da,
-
-        [XmlEnum("EAA")]
-        Eaa,
-
-        [XmlEnum("EAB")]
-        Eab,
-
-        [XmlEnum("PI")]
-        Pi,
-
-        [XmlEnum("TAE")]
-        Tae,
-
-        [XmlEnum("SAB")]
-        Sab,
-
-        [XmlEnum("RAA")]
-        Raa,
-
-        [XmlEnum("PAD")]
-        Pad,
-
-        [XmlEnum("FG")]
-        Fg,
-
-        [XmlEnum("FA")]
-        Fa,
-
-        [XmlEnum("TD")]
-        Td,
-
-        [XmlEnum("TS")]
-        Ts,
-
-        [XmlEnum("TX")]
-        Tx,
-
-        [XmlEnum("TZ")]
-        Tz,
-
-        [XmlEnum("ZZZ")]
-        Zzz,
-
-        [XmlEnum("VAB")]
-        Vab,
-
-        [XmlEnum("UM")]
-        Um,
-
-        [XmlEnum("DI")]
-        Di,
-
-        [XmlEnum("CAC")]
-        Cac,
-
-        [XmlEnum("COD")]
-        Cod,
-
-        [XmlEnum("EAB")]
-        Eab1,
-
-        [XmlEnum("FC")]
-        Fc,
-
-        [XmlEnum("FI")]
-        Fi,
-
-        [XmlEnum("HD")]
-        Hd,
-
-        [XmlEnum("QD")]
-        Qd,
+        /// 
+        [XmlElementAttribute("postalCode")]
+        public string[] PostalCode { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum AllowanceChargeMonetaryAmountOrPercentageRateBase
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaInvoiceCreator
     {
+        /// 
+        [XmlElement("gln")]
+        public string Gln { get; set; }
 
-        [XmlEnum("INVOICE_VALUE")]
-        InvoiceValue,
+        /// 
+        [XmlElement("alternatePartyIdentification")]
+        public DetallistaInvoiceCreatorAlternatePartyIdentification AlternatePartyIdentification { get; set; }
+
+        /// 
+        [XmlElement("nameAndAddress")]
+        public DetallistaInvoiceCreatorNameAndAddress NameAndAddress { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum AllowanceChargeAllowanceChargeType
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaInvoiceCreatorAlternatePartyIdentification
     {
+        /// 
+        [XmlAttributeAttribute("type")]
+        public DetallistaInvoiceCreatorAlternatePartyIdentificationType Type { get; set; }
 
-        [XmlEnum("ALLOWANCE_GLOBAL")]
-        AllowanceGlobal,
+        /// 
+        [XmlTextAttribute()]
+        public string Value { get; set; }
+    }
+    /// 
 
-        [XmlEnum("CHARGE_GLOBAL")]
-        ChargeGlobal,
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaInvoiceCreatorNameAndAddress
+    {
+        /// 
+        [XmlElement("name")]
+        public string Name { get; set; }
+
+        /// 
+        [XmlElement("streetAddressOne")]
+        public string StreetAddressOne { get; set; }
+
+        /// 
+        [XmlElement("city")]
+        public string City { get; set; }
+
+        /// 
+        [XmlElement("postalCode")]
+        public string PostalCode { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum AllowanceChargeSettlementType
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaCustoms
     {
-
-        [XmlEnum("BILL_BACK")]
-        BillBack,
-
-        [XmlEnum("OFF_INVOICE")]
-        OffInvoice,
-    }
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemAlternateTradeItemIdentificationType
-    {
-
-        [XmlEnum("BUYER_ASSIGNED")]
-        BuyerAssigned,
-
-        [XmlEnum("SUPPLIER_ASSIGNED")]
-        SupplierAssigned,
-
-        [XmlEnum("SERIAL_NUMBER")]
-        SerialNumber,
-
-        [XmlEnum("GLOBAL_TRADE_ITEM_IDENTIFICATION")]
-        GlobalTradeItemIdentification,
-    }
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemTradeItemDescriptionInformationLanguage
-    {
-
-        [XmlEnum("ES")]
-        Es,
-
-        [XmlEnum("EN")]
-        En,
+        /// 
+        [XmlElement("gln")]
+        public string Gln { get; set; }
     }
 
 
-
-
-
-
-
-    
-
-
-   
-
-
-   
-
-
-
-
-    
-
-
-   
-
-
-    
-
-
-    
-
-
-
-
-
-   
-
-
-   
-
-    
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class PaymentTermsNetPayment
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaCurrency
     {
-        public PaymentTermsNetPaymentPaymentTimePeriod PaymentTimePeriod { get; set; }
+        /// 
+        [XmlElementAttribute("currencyFunction")]
+        public DetallistaCurrencyCurrencyFunction[] CurrencyFunction { get; set; }
+
+        /// 
+        [XmlElement("rateOfChange")]
+        public decimal RateOfChange { get; set; }
+
+        /// 
+        [XmlIgnoreAttribute()]
+        public bool RateOfChangeSpecified { get; set; }
+
+        /// 
+        [XmlAttributeAttribute("currencyISOCode")]
+        public DetallistaCurrencyCurrencyIsoCode CurrencyIsoCode { get; set; }
+    }
+    /// 
 
 
-        [XmlAttribute("netPaymentTermsType")]
-        public PaymentTermsNetPaymentNetPaymentTermsType NetPaymentTermsType { get; set; }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaPaymentTerms
+    {
+        /// 
+        [XmlElement("netPayment")]
+        public DetallistaPaymentTermsNetPayment NetPayment { get; set; }
+
+        /// 
+        [XmlElement("discountPayment")]
+        public DetallistaPaymentTermsDiscountPayment DiscountPayment { get; set; }
+
+        /// 
+        [XmlAttributeAttribute("paymentTermsEvent")]
+        public DetallistaPaymentTermsPaymentTermsEvent PaymentTermsEvent { get; set; }
+
+        /// 
+        [XmlIgnoreAttribute()]
+        public bool PaymentTermsEventSpecified { get; set; }
+
+        /// 
+        [XmlAttributeAttribute("PaymentTermsRelationTime")]
+        public DetallistaPaymentTermsPaymentTermsRelationTime PaymentTermsRelationTime { get; set; }
+
+        /// 
+        [XmlIgnoreAttribute()]
+        public bool PaymentTermsRelationTimeSpecified { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class PaymentTermsNetPaymentPaymentTimePeriod
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaPaymentTermsNetPayment
     {
-        public PaymentTermsNetPaymentPaymentTimePeriodTimePeriodDue TimePeriodDue { get; set; }
+        /// 
+        [XmlElement("paymentTimePeriod")]
+        public DetallistaPaymentTermsNetPaymentPaymentTimePeriod PaymentTimePeriod { get; set; }
+
+        /// 
+        [XmlAttributeAttribute("netPaymentTermsType")]
+        public DetallistaPaymentTermsNetPaymentNetPaymentTermsType NetPaymentTermsType { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class PaymentTermsNetPaymentPaymentTimePeriodTimePeriodDue
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaPaymentTermsNetPaymentPaymentTimePeriod
     {
+        /// 
+        [XmlElement("timePeriodDue")]
+        public DetallistaPaymentTermsNetPaymentPaymentTimePeriodTimePeriodDue TimePeriodDue { get; set; }
+    }
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaPaymentTermsNetPaymentPaymentTimePeriodTimePeriodDue
+    {
+        /// 
+        [XmlElement("value")]
         public string Value { get; set; }
 
+        /// 
+        [XmlAttributeAttribute("timePeriod")]
+        public DetallistaPaymentTermsNetPaymentPaymentTimePeriodTimePeriodDueTimePeriod TimePeriod { get; set; }
+    }
 
-        [XmlAttribute("timePeriod")]
-        public PaymentTermsNetPaymentPaymentTimePeriodTimePeriodDueTimePeriod TimePeriod { get; set; }
-    }  
+    /// 
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class PaymentTermsDiscountPayment
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaPaymentTermsDiscountPayment
     {
+        /// 
+        [XmlElement("percentage")]
         public string Percentage { get; set; }
 
-
-        [XmlAttribute("discountType")]
-        public PaymentTermsDiscountPaymentDiscountType DiscountType { get; set; }
+        /// 
+        [XmlAttributeAttribute("discountType")]
+        public DetallistaPaymentTermsDiscountPaymentDiscountType DiscountType { get; set; }
     }
+    /// 
 
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class ShipmentDetail
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaShipmentDetail
     {
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class AllowanceCharge
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaAllowanceCharge
     {
-        public AllowanceChargeSpecialServicesType SpecialServicesType { get; set; }
+        /// 
+        [XmlElement("specialServicesType")]
+        public DetallistaAllowanceChargeSpecialServicesType SpecialServicesType { get; set; }
 
-
-        [XmlIgnore()]
+        /// 
+        [XmlIgnoreAttribute()]
         public bool SpecialServicesTypeSpecified { get; set; }
 
+        /// 
+        [XmlElement("monetaryAmountOrPercentage")]
+        public DetallistaAllowanceChargeMonetaryAmountOrPercentage MonetaryAmountOrPercentage { get; set; }
 
-        public AllowanceChargeMonetaryAmountOrPercentage MonetaryAmountOrPercentage { get; set; }
+        /// 
+        [XmlAttributeAttribute("allowanceChargeType")]
+        public DetallistaAllowanceChargeAllowanceChargeType AllowanceChargeType { get; set; }
 
+        /// 
+        [XmlAttributeAttribute("settlementType")]
+        public DetallistaAllowanceChargeSettlementType SettlementType { get; set; }
 
-        [XmlAttribute("allowanceChargeType")]
-        public AllowanceChargeAllowanceChargeType AllowanceChargeType { get; set; }
-
-
-        [XmlAttribute("settlementType")]
-        public AllowanceChargeSettlementType SettlementType { get; set; }
-
-
-        [XmlAttribute("sequenceNumber")]
+        /// 
+        [XmlAttributeAttribute("sequenceNumber")]
         public string SequenceNumber { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class AllowanceChargeMonetaryAmountOrPercentage
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaAllowanceChargeMonetaryAmountOrPercentage
     {
-        public AllowanceChargeMonetaryAmountOrPercentageRate Rate { get; set; }
+        /// 
+        [XmlElement("rate")]
+        public DetallistaAllowanceChargeMonetaryAmountOrPercentageRate Rate { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class AllowanceChargeMonetaryAmountOrPercentageRate
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaAllowanceChargeMonetaryAmountOrPercentageRate
     {
+        /// 
+        [XmlElement("percentage")]
         public decimal Percentage { get; set; }
 
-
-        [XmlAttribute("@base")]
-        public AllowanceChargeMonetaryAmountOrPercentageRateBase Base { get; set; }
+        /// 
+        [XmlAttributeAttribute("@base")]
+        public DetallistaAllowanceChargeMonetaryAmountOrPercentageRateBase Base { get; set; }
     }
+    /// 
 
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItem
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItem
     {
-        public LineItem()
+        public DetallistaLineItem()
         {
             Type = "SimpleInvoiceLineItemType";
         }
+        /// 
+        [XmlElement("tradeItemIdentification")]
+        public DetallistaLineItemTradeItemIdentification TradeItemIdentification { get; set; }
 
+        /// 
+        [XmlElementAttribute("alternateTradeItemIdentification")]
+        public DetallistaLineItemAlternateTradeItemIdentification[] AlternateTradeItemIdentification { get; set; }
 
-        public LineItemTradeItemIdentification TradeItemIdentification { get; set; }
+        /// 
+        [XmlElement("tradeItemDescriptionInformation")]
+        public DetallistaLineItemTradeItemDescriptionInformation TradeItemDescriptionInformation { get; set; }
 
+        /// 
+        [XmlElement("invoicedQuantity")]
+        public DetallistaLineItemInvoicedQuantity InvoicedQuantity { get; set; }
 
-        [XmlElement("alternateTradeItemIdentification")]
-        public LineItemAlternateTradeItemIdentification[] AlternateTradeItemIdentification { get; set; }
+        /// 
+        [XmlElementAttribute("aditionalQuantity")]
+        public DetallistaLineItemAditionalQuantity[] AditionalQuantity { get; set; }
 
+        /// 
+        [XmlElement("grossPrice")]
+        public DetallistaLineItemGrossPrice GrossPrice { get; set; }
 
-        public LineItemTradeItemDescriptionInformation TradeItemDescriptionInformation { get; set; }
+        /// 
+        [XmlElement("netPrice")]
+        public DetallistaLineItemNetPrice NetPrice { get; set; }
 
+        /// 
+        [XmlElement("AdditionalInformation")]
+        public DetallistaLineItemAdditionalInformation AdditionalInformation { get; set; }
 
-        public LineItemInvoicedQuantity InvoicedQuantity { get; set; }
+        /// 
+        [XmlElementAttribute("Customs")]
+        public DetallistaLineItemCustoms[] Customs { get; set; }
 
+        /// 
+        [XmlElement("LogisticUnits")]
+        public DetallistaLineItemLogisticUnits LogisticUnits { get; set; }
 
-        [XmlElement("aditionalQuantity")]
-        public LineItemAditionalQuantity[] AditionalQuantity { get; set; }
+        /// 
+        [XmlElement("palletInformation")]
+        public DetallistaLineItemPalletInformation PalletInformation { get; set; }
 
+        /// 
+        [XmlArrayItemAttribute("lotNumber", IsNullable = false)]
+        public DetallistaLineItemLotNumber[] ExtendedAttributes { get; set; }
 
-        public LineItemGrossPrice GrossPrice { get; set; }
+        /// 
+        [XmlElementAttribute("allowanceCharge")]
+        public DetallistaLineItemAllowanceCharge[] AllowanceCharge { get; set; }
 
+        /// 
+        [XmlElementAttribute("tradeItemTaxInformation")]
+        public DetallistaLineItemTradeItemTaxInformation[] TradeItemTaxInformation { get; set; }
 
-        public LineItemNetPrice NetPrice { get; set; }
+        /// 
+        [XmlElement("totalLineAmount")]
+        public DetallistaLineItemTotalLineAmount TotalLineAmount { get; set; }
 
-
-        public LineItemAdditionalInformation AdditionalInformation { get; set; }
-
-
-        [XmlElement("Customs")]
-        public LineItemCustoms[] Customs { get; set; }
-
-
-        public LineItemLogisticUnits LogisticUnits { get; set; }
-
-
-        public LineItemPalletInformation PalletInformation { get; set; }
-
-
-        [XmlArrayItem("lotNumber", IsNullable = false)]
-        public LineItemLotNumber[] ExtendedAttributes { get; set; }
-
-
-        [XmlElement("allowanceCharge")]
-        public LineItemAllowanceCharge[] AllowanceCharge { get; set; }
-
-
-        [XmlElement("tradeItemTaxInformation")]
-        public LineItemTradeItemTaxInformation[] TradeItemTaxInformation { get; set; }
-
-
-        public LineItemTotalLineAmount TotalLineAmount { get; set; }
-
-
-        [XmlAttribute()]
+        /// 
+        [XmlAttributeAttribute()]
         [System.ComponentModel.DefaultValueAttribute("SimpleInvoiceLineItemType")]
         public string Type { get; set; }
 
-
-        [XmlAttribute(DataType = "integer")]
+        /// 
+        [XmlAttributeAttribute(DataType = "integer")]
         public string Number { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemTradeItemIdentification
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemTradeItemIdentification
     {
+        /// 
+        [XmlElement("gtin")]
         public string Gtin { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemAlternateTradeItemIdentification
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemAlternateTradeItemIdentification
     {
-        [XmlAttribute("type")]
-        public LineItemAlternateTradeItemIdentificationType Type { get; set; }
+        /// 
+        [XmlAttributeAttribute("type")]
+        public DetallistaLineItemAlternateTradeItemIdentificationType Type { get; set; }
 
-
-        [XmlText()]
+        /// 
+        [XmlTextAttribute()]
         public string[] Text { get; set; }
     }
+    /// 
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemTradeItemDescriptionInformation
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemTradeItemDescriptionInformation
     {
+        /// 
+        [XmlElement("longText")]
         public string LongText { get; set; }
 
+        /// 
+        [XmlAttributeAttribute("language")]
+        public DetallistaLineItemTradeItemDescriptionInformationLanguage Language { get; set; }
 
-        [XmlAttribute("language")]
-        public LineItemTradeItemDescriptionInformationLanguage Language { get; set; }
-
-
-        [XmlIgnore()]
+        /// 
+        [XmlIgnoreAttribute()]
         public bool LanguageSpecified { get; set; }
     }
+    /// 
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemInvoicedQuantity
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemInvoicedQuantity
     {
-        [XmlAttribute(DataType = "NMTOKEN")]
+        /// 
+        [XmlAttributeAttribute(DataType = "NMTOKEN")]
         public string UnitOfMeasure { get; set; }
 
-
-        [XmlText()]
+        /// 
+        [XmlTextAttribute()]
         public string[] Text { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemAditionalQuantity
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemAditionalQuantity
     {
-        [XmlAttribute("QuantityType")]
-        public LineItemAditionalQuantityQuantityType QuantityType { get; set; }
+        /// 
+        [XmlAttributeAttribute("QuantityType")]
+        public DetallistaLineItemAditionalQuantityQuantityType QuantityType { get; set; }
 
-
-        [XmlText()]
+        /// 
+        [XmlTextAttribute()]
         public string[] Text { get; set; }
     }
+    /// 
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemAditionalQuantityQuantityType
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemGrossPrice
     {
-
-        [XmlEnum("NUM_CONSUMER_UNITS")]
-        NumConsumerUnits,
-
-        [XmlEnum("FREE_GOODS")]
-        FreeGoods,
-    }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemGrossPrice
-    {
+        /// 
+        [XmlElement("Amount")]
         public decimal Amount { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemNetPrice
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemNetPrice
     {
+        /// 
+        [XmlElement("Amount")]
         public decimal Amount { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemAdditionalInformation
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemAdditionalInformation
     {
-        public LineItemAdditionalInformationReferenceIdentification ReferenceIdentification { get; set; }
+        /// 
+        [XmlElement("referenceIdentification")]
+        public DetallistaLineItemAdditionalInformationReferenceIdentification ReferenceIdentification { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemAdditionalInformationReferenceIdentification
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemAdditionalInformationReferenceIdentification
     {
-        [XmlAttribute("type")]
-        public LineItemAdditionalInformationReferenceIdentificationType Type { get; set; }
+        /// 
+        [XmlAttributeAttribute("type")]
+        public DetallistaLineItemAdditionalInformationReferenceIdentificationType Type { get; set; }
 
-
-        [XmlText()]
+        /// 
+        [XmlTextAttribute()]
         public string Value { get; set; }
     }
+    /// 
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemAdditionalInformationReferenceIdentificationType
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemCustoms
     {
-
-        [XmlEnum("ON")]
-        On,
-    }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemCustoms
-    {
+        /// 
+        [XmlElement("gln")]
         public string Gln { get; set; }
 
+        /// 
+        [XmlElement("alternatePartyIdentification")]
+        public DetallistaLineItemCustomsAlternatePartyIdentification AlternatePartyIdentification { get; set; }
 
-        public LineItemCustomsAlternatePartyIdentification AlternatePartyIdentification { get; set; }
-
-
-        [XmlElement(DataType = "date")]
+        /// 
+        [XmlElementAttribute(DataType = "date")]
         public System.DateTime ReferenceDate { get; set; }
 
-
-        public LineItemCustomsNameAndAddress NameAndAddress { get; set; }
+        /// 
+        [XmlElement("nameAndAddress")]
+        public DetallistaLineItemCustomsNameAndAddress NameAndAddress { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemCustomsAlternatePartyIdentification
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemCustomsAlternatePartyIdentification
     {
-        [XmlAttribute("type")]
-        public LineItemCustomsAlternatePartyIdentificationType Type { get; set; }
+        /// 
+        [XmlAttributeAttribute("type")]
+        public DetallistaLineItemCustomsAlternatePartyIdentificationType Type { get; set; }
 
-
-        [XmlText()]
+        /// 
+        [XmlTextAttribute()]
         public string Value { get; set; }
     }
+    /// 
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemCustomsAlternatePartyIdentificationType
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemCustomsNameAndAddress
     {
-
-        [XmlEnum("TN")]
-        Tn,
-    }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemCustomsNameAndAddress
-    {
+        /// 
+        [XmlElement("name")]
         public string Name { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemLogisticUnits
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemLogisticUnits
     {
-        public LineItemLogisticUnitsSerialShippingContainerCode SerialShippingContainerCode { get; set; }
+        /// 
+        [XmlElement("serialShippingContainerCode")]
+        public DetallistaLineItemLogisticUnitsSerialShippingContainerCode SerialShippingContainerCode { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemLogisticUnitsSerialShippingContainerCode
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemLogisticUnitsSerialShippingContainerCode
     {
-        [XmlAttribute("type")]
-        public LineItemLogisticUnitsSerialShippingContainerCodeType Type { get; set; }
+        /// 
+        [XmlAttributeAttribute("type")]
+        public DetallistaLineItemLogisticUnitsSerialShippingContainerCodeType Type { get; set; }
 
-
-        [XmlText()]
+        /// 
+        [XmlTextAttribute()]
         public string Value { get; set; }
     }
+    /// 
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemLogisticUnitsSerialShippingContainerCodeType
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemPalletInformation
     {
-
-        [XmlEnum("BJ")]
-        Bj,
-
-        [XmlEnum("SRV")]
-        Srv,
-    }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemPalletInformation
-    {
+        /// 
+        [XmlElement("palletQuantity")]
         public string PalletQuantity { get; set; }
 
+        /// 
+        [XmlElement("description")]
+        public DetallistaLineItemPalletInformationDescription Description { get; set; }
 
-        public LineItemPalletInformationDescription Description { get; set; }
-
-
-        public LineItemPalletInformationTransport Transport { get; set; }
+        /// 
+        [XmlElement("transport")]
+        public DetallistaLineItemPalletInformationTransport Transport { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemPalletInformationDescription
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemPalletInformationDescription
     {
-        [XmlAttribute("type")]
-        public LineItemPalletInformationDescriptionType Type { get; set; }
+        /// 
+        [XmlAttributeAttribute("type")]
+        public DetallistaLineItemPalletInformationDescriptionType Type { get; set; }
 
-
-        [XmlText()]
+        /// 
+        [XmlTextAttribute()]
         public string[] Text { get; set; }
     }
+    /// 
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemPalletInformationDescriptionType
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemPalletInformationTransport
     {
-
-        [XmlEnum("EXCHANGE_PALLETS")]
-        ExchangePallets,
-
-        [XmlEnum("RETURN_PALLETS")]
-        ReturnPallets,
-
-        [XmlEnum("PALLET_80x100")]
-        Pallet80X100,
-
-        [XmlEnum("CASE")]
-        Case,
-
-        [XmlEnum("BOX")]
-        Box,
+        /// 
+        [XmlElement("methodOfPayment")]
+        public DetallistaLineItemPalletInformationTransportMethodOfPayment MethodOfPayment { get; set; }
     }
+    /// 
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemPalletInformationTransport
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemLotNumber
     {
-        public LineItemPalletInformationTransportMethodOfPayment MethodOfPayment { get; set; }
-    }
-
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemPalletInformationTransportMethodOfPayment
-    {
-
-        [XmlEnum("PREPAID_BY_SELLER")]
-        PrepaidBySeller,
-
-        [XmlEnum("PAID_BY_BUYER")]
-        PaidByBuyer,
-    }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemLotNumber
-    {
-        [XmlAttribute(DataType = "date")]
+        /// 
+        [XmlAttributeAttribute(DataType = "date")]
         public System.DateTime ProductionDate { get; set; }
 
-
-        [XmlIgnore()]
+        /// 
+        [XmlIgnoreAttribute()]
         public bool ProductionDateSpecified { get; set; }
 
-
-        [XmlText()]
+        /// 
+        [XmlTextAttribute()]
         public string Value { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemAllowanceCharge
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemAllowanceCharge
     {
-        public LineItemAllowanceChargeSpecialServicesType SpecialServicesType { get; set; }
+        /// 
+        [XmlElement("specialServicesType")]
+        public DetallistaLineItemAllowanceChargeSpecialServicesType SpecialServicesType { get; set; }
 
-
-        [XmlIgnore()]
+        /// 
+        [XmlIgnoreAttribute()]
         public bool SpecialServicesTypeSpecified { get; set; }
 
+        /// 
+        [XmlElement("monetaryAmountOrPercentage")]
+        public DetallistaLineItemAllowanceChargeMonetaryAmountOrPercentage MonetaryAmountOrPercentage { get; set; }
 
-        public LineItemAllowanceChargeMonetaryAmountOrPercentage MonetaryAmountOrPercentage { get; set; }
+        /// 
+        [XmlAttributeAttribute("allowanceChargeType")]
+        public DetallistaLineItemAllowanceChargeAllowanceChargeType AllowanceChargeType { get; set; }
 
+        /// 
+        [XmlAttributeAttribute("settlementType")]
+        public DetallistaLineItemAllowanceChargeSettlementType SettlementType { get; set; }
 
-        [XmlAttribute("allowanceChargeType")]
-        public LineItemAllowanceChargeAllowanceChargeType AllowanceChargeType { get; set; }
-
-
-        [XmlAttribute("settlementType")]
-        public LineItemAllowanceChargeSettlementType SettlementType { get; set; }
-
-
-        [XmlIgnore()]
+        /// 
+        [XmlIgnoreAttribute()]
         public bool SettlementTypeSpecified { get; set; }
 
-
-        [XmlAttribute("sequenceNumber")]
+        /// 
+        [XmlAttributeAttribute("sequenceNumber")]
         public string SequenceNumber { get; set; }
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemAllowanceChargeSpecialServicesType
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemAllowanceChargeMonetaryAmountOrPercentage
     {
-
-        [XmlEnum("AA")]
-        Aa,
-
-        [XmlEnum("ADS")]
-        Ads,
-
-        [XmlEnum("ADO")]
-        Ado,
-
-        [XmlEnum("ABZ")]
-        Abz,
-
-        [XmlEnum("DA")]
-        Da,
-
-        [XmlEnum("EAA")]
-        Eaa,
-
-        [XmlEnum("PI")]
-        Pi,
-
-        [XmlEnum("TAE")]
-        Tae,
-
-        [XmlEnum("SAB")]
-        Sab,
-
-        [XmlEnum("RAA")]
-        Raa,
-
-        [XmlEnum("PAD")]
-        Pad,
-
-        [XmlEnum("FG")]
-        Fg,
-
-        [XmlEnum("FA")]
-        Fa,
-
-        [XmlEnum("TD")]
-        Td,
-
-        [XmlEnum("TS")]
-        Ts,
-
-        [XmlEnum("TX")]
-        Tx,
-
-        [XmlEnum("ZZZ")]
-        Zzz,
-
-        [XmlEnum("VAB")]
-        Vab,
-
-        [XmlEnum("UM")]
-        Um,
-
-        [XmlEnum("DI")]
-        Di,
-
-        [XmlEnum("ADT")]
-        Adt,
-
-        [XmlEnum("AJ")]
-        Aj,
-
-        [XmlEnum("CAC")]
-        Cac,
-
-        [XmlEnum("COD")]
-        Cod,
-
-        [XmlEnum("EAB")]
-        Eab,
-
-        [XmlEnum("FC")]
-        Fc,
-
-        [XmlEnum("FI")]
-        Fi,
-
-        [XmlEnum("HD")]
-        Hd,
-
-        [XmlEnum("QD")]
-        Qd,
-    }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemAllowanceChargeMonetaryAmountOrPercentage
-    {
+        /// 
+        [XmlElement("percentagePerUnit")]
         public string PercentagePerUnit { get; set; }
 
-
-        public LineItemAllowanceChargeMonetaryAmountOrPercentageRatePerUnit RatePerUnit { get; set; }
+        /// 
+        [XmlElement("ratePerUnit")]
+        public DetallistaLineItemAllowanceChargeMonetaryAmountOrPercentageRatePerUnit RatePerUnit { get; set; }
     }
 
 
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemAllowanceChargeMonetaryAmountOrPercentageRatePerUnit
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemAllowanceChargeMonetaryAmountOrPercentageRatePerUnit
     {
+        /// 
+        [XmlElement("amountPerUnit")]
         public string AmountPerUnit { get; set; }
     }
+    /// 
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemAllowanceChargeAllowanceChargeType
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemTradeItemTaxInformation
     {
+        /// 
+        [XmlElement("taxTypeDescription")]
+        public DetallistaLineItemTradeItemTaxInformationTaxTypeDescription TaxTypeDescription { get; set; }
 
-        [XmlEnum("ALLOWANCE_GLOBAL")]
+        /// 
+        [XmlElement("referenceNumber")]
+        public string ReferenceNumber { get; set; }
+
+        /// 
+        [XmlElement("tradeItemTaxAmount")]
+        public DetallistaLineItemTradeItemTaxInformationTradeItemTaxAmount TradeItemTaxAmount { get; set; }
+
+        /// 
+        [XmlElement("taxCategory")]
+        public DetallistaLineItemTradeItemTaxInformationTaxCategory TaxCategory { get; set; }
+
+        /// 
+        [XmlIgnoreAttribute()]
+        public bool TaxCategorySpecified { get; set; }
+    }
+    /// 
+
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemTradeItemTaxInformationTradeItemTaxAmount
+    {
+        /// 
+        [XmlElement("taxPercentage")]
+        public decimal TaxPercentage { get; set; }
+
+        /// 
+        [XmlElement("taxAmount")]
+        public decimal TaxAmount { get; set; }
+    }
+    /// 
+
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemTotalLineAmount
+    {
+        /// 
+        [XmlElement("grossAmount")]
+        public DetallistaLineItemTotalLineAmountGrossAmount GrossAmount { get; set; }
+
+        /// 
+        [XmlElement("netAmount")]
+        public DetallistaLineItemTotalLineAmountNetAmount NetAmount { get; set; }
+    }
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemTotalLineAmountGrossAmount
+    {
+        /// 
+        [XmlElement("Amount")]
+        public decimal Amount { get; set; }
+    }
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaLineItemTotalLineAmountNetAmount
+    {
+        /// 
+        [XmlElement("Amount")]
+        public decimal Amount { get; set; }
+    }
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaTotalAmount
+    {
+        /// 
+        [XmlElement("Amount")]
+        public decimal Amount { get; set; }
+    }
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public class DetallistaTotalAllowanceCharge
+    {
+        /// 
+        [XmlElement("specialServicesType")]
+        public DetallistaTotalAllowanceChargeSpecialServicesType SpecialServicesType { get; set; }
+
+        /// 
+        [XmlIgnoreAttribute()]
+        public bool SpecialServicesTypeSpecified { get; set; }
+
+        /// 
+        [XmlElement("Amount")]
+        public decimal Amount { get; set; }
+
+        /// 
+        [XmlIgnoreAttribute()]
+        public bool AmountSpecified { get; set; }
+
+        /// 
+        [XmlAttributeAttribute("allowanceOrChargeType")]
+        public DetallistaTotalAllowanceChargeAllowanceOrChargeType AllowanceOrChargeType { get; set; }
+    }
+
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaRequestForPaymentIdentificationEntityType
+    {
+        /// 
+        [XmlEnumAttribute("INVOICE")]
+        Invoice,
+        /// 
+        [XmlEnumAttribute("DEBIT_NOTE")]
+        DebitNote,
+        /// 
+        [XmlEnumAttribute("CREDIT_NOTE")]
+        CreditNote,
+        /// 
+        [XmlEnumAttribute("LEASE_RECEIPT")]
+        LeaseReceipt,
+        /// 
+        [XmlEnumAttribute("HONORARY_RECEIPT")]
+        HonoraryReceipt,
+        /// 
+        [XmlEnumAttribute("_INVOICE")]
+        InvoiceUnserscore,
+        /// 
+        [XmlEnumAttribute("TRANSPORT_DOCUMENT")]
+        TransportDocument,
+        /// 
+        [XmlEnumAttribute("AUTO_INVOICE")]
+        AutoInvoice,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaSpecialInstructionCode
+    {
+        /// 
+        [XmlEnumAttribute("AAB")]
+        Aab,
+        /// 
+        [XmlEnumAttribute("DUT")]
+        Dut,
+        /// 
+        [XmlEnumAttribute("PUR")]
+        Pur,
+        /// 
+        [XmlEnumAttribute("ZZZ")]
+        Zzz,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaOrderIdentificationReferenceIdentificationType
+    {
+        /// 
+        [XmlEnumAttribute("ON")]
+        On,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaReferenceIdentificationType
+    {
+        /// 
+        [XmlEnumAttribute("AAE")]
+        Aae,
+        /// 
+        [XmlEnumAttribute("CK")]
+        Ck,
+        /// 
+        [XmlEnumAttribute("ACE")]
+        Ace,
+        /// 
+        [XmlEnumAttribute("ATZ")]
+        Atz,
+        /// 
+        [XmlEnumAttribute("DQ")]
+        Dq,
+        /// 
+        [XmlEnumAttribute("IV")]
+        Iv,
+        /// 
+        [XmlEnumAttribute("ON")]
+        On,
+        /// 
+        [XmlEnumAttribute("AWR")]
+        Awr,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaSellerAlternatePartyIdentificationType
+    {
+        /// 
+        [XmlEnumAttribute("SELLER_ASSIGNED_IDENTIFIER_FOR_A_PARTY")]
+        SellerAssignedIdentifierForAParty,
+        /// 
+        [XmlEnumAttribute("IEPS_REFERENCE")]
+        IepsReference,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaInvoiceCreatorAlternatePartyIdentificationType
+    {
+        /// 
+        [XmlEnumAttribute("VA")]
+        Va,
+        /// 
+        [XmlEnumAttribute("IA")]
+        Ia,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaCurrencyCurrencyFunction
+    {
+        /// 
+        [XmlEnumAttribute("BILLING_CURRENCY")]
+        BillingCurrency,
+        /// 
+        [XmlEnumAttribute("PRICE_CURRENCY")]
+        PriceCurrency,
+        /// 
+        [XmlEnumAttribute("PAYMENT_CURRENCY")]
+        PaymentCurrency,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaCurrencyCurrencyIsoCode
+    {
+        /// 
+        [XmlEnumAttribute("MXN")]
+        Mxn,
+        /// 
+        [XmlEnumAttribute("XEU")]
+        Xeu,
+        /// 
+        [XmlEnumAttribute("USD")]
+        Usd,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaPaymentTermsNetPaymentNetPaymentTermsType
+    {
+        /// 
+        [XmlEnumAttribute("BASIC_NET")]
+        BasicNet,
+        /// 
+        [XmlEnumAttribute("END_OF_MONTH")]
+        EndOfMonth,
+        /// 
+        [XmlEnumAttribute("BASIC_DISCOUNT_OFFERED")]
+        BasicDiscountOffered,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaPaymentTermsDiscountPaymentDiscountType
+    {
+        /// 
+        [XmlEnumAttribute("ALLOWANCE_BY_PAYMENT_ON_TIME")]
+        AllowanceByPaymentOnTime,
+        /// 
+        [XmlEnumAttribute("SANCTION")]
+        Sanction,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaPaymentTermsPaymentTermsEvent
+    {
+        /// 
+        [XmlEnumAttribute("DATE_OF_INVOICE")]
+        DateOfInvoice,
+        /// 
+        [XmlEnumAttribute("EFFECTIVE_DATE")]
+        EffectiveDate,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaPaymentTermsPaymentTermsRelationTime
+    {
+        /// 
+        [XmlEnumAttribute("REFERENCE_AFTER")]
+        ReferenceAfter,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaAllowanceChargeMonetaryAmountOrPercentageRateBase
+    {
+        /// 
+        [XmlEnumAttribute("INVOICE_VALUE")]
+        InvoiceValue,
+    }
+
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaAllowanceChargeAllowanceChargeType
+    {
+        /// 
+        [XmlEnumAttribute("ALLOWANCE_GLOBAL")]
         AllowanceGlobal,
-
-        [XmlEnum("CHARGE_GLOBAL")]
+        /// 
+        [XmlEnumAttribute("CHARGE_GLOBAL")]
         ChargeGlobal,
     }
 
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemAllowanceChargeSettlementType
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaAllowanceChargeSettlementType
     {
-
-        [XmlEnum("OFF_INVOICE")]
+        /// 
+        [XmlEnumAttribute("BILL_BACK")]
+        BillBack,
+        /// 
+        [XmlEnumAttribute("OFF_INVOICE")]
         OffInvoice,
-
-        [XmlEnum("CHARGE_TO_BE_PAID_BY_VENDOR")]
+    }
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemAlternateTradeItemIdentificationType
+    {
+        /// 
+        [XmlEnumAttribute("BUYER_ASSIGNED")]
+        BuyerAssigned,
+        /// 
+        [XmlEnumAttribute("SUPPLIER_ASSIGNED")]
+        SupplierAssigned,
+        /// 
+        [XmlEnumAttribute("SERIAL_NUMBER")]
+        SerialNumber,
+        /// 
+        [XmlEnumAttribute("GLOBAL_TRADE_ITEM_IDENTIFICATION")]
+        GlobalTradeItemIdentification,
+    }
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemTradeItemDescriptionInformationLanguage
+    {
+        /// 
+        [XmlEnumAttribute("ES")]
+        Es,
+        /// 
+        [XmlEnumAttribute("EN")]
+        En,
+    }
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemAditionalQuantityQuantityType
+    {
+        /// 
+        [XmlEnumAttribute("NUM_CONSUMER_UNITS")]
+        NumConsumerUnits,
+        /// 
+        [XmlEnumAttribute("FREE_GOODS")]
+        FreeGoods,
+    }
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemAdditionalInformationReferenceIdentificationType
+    {
+        /// 
+        [XmlEnumAttribute("ON")]
+        On,
+    }
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemCustomsAlternatePartyIdentificationType
+    {
+        /// 
+        [XmlEnumAttribute("TN")]
+        Tn,
+    }
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemLogisticUnitsSerialShippingContainerCodeType
+    {
+        /// 
+        [XmlEnumAttribute("BJ")]
+        Bj,
+        /// 
+        [XmlEnumAttribute("SRV")]
+        Srv,
+    }
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemPalletInformationDescriptionType
+    {
+        /// 
+        [XmlEnumAttribute("EXCHANGE_PALLETS")]
+        ExchangePallets,
+        /// 
+        [XmlEnumAttribute("RETURN_PALLETS")]
+        ReturnPallets,
+        /// 
+        [XmlEnumAttribute("PALLET_80x100")]
+        Pallet80X100,
+        /// 
+        [XmlEnumAttribute("CASE")]
+        Case,
+        /// 
+        [XmlEnumAttribute("BOX")]
+        Box,
+    }
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemPalletInformationTransportMethodOfPayment
+    {
+        /// 
+        [XmlEnumAttribute("PREPAID_BY_SELLER")]
+        PrepaidBySeller,
+        /// 
+        [XmlEnumAttribute("PAID_BY_BUYER")]
+        PaidByBuyer,
+    }
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemAllowanceChargeAllowanceChargeType
+    {
+        /// 
+        [XmlEnumAttribute("ALLOWANCE_GLOBAL")]
+        AllowanceGlobal,
+        /// 
+        [XmlEnumAttribute("CHARGE_GLOBAL")]
+        ChargeGlobal,
+    }
+    /// 
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemAllowanceChargeSettlementType
+    {
+        /// 
+        [XmlEnumAttribute("OFF_INVOICE")]
+        OffInvoice,
+        /// 
+        [XmlEnumAttribute("CHARGE_TO_BE_PAID_BY_VENDOR")]
         ChargeToBePaidByVendor,
-
-        [XmlEnum("CHARGE_TO_BE_PAID_BY_CUSTOMER")]
+        /// 
+        [XmlEnumAttribute("CHARGE_TO_BE_PAID_BY_CUSTOMER")]
         ChargeToBePaidByCustomer,
     }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemTradeItemTaxInformation
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemTradeItemTaxInformationTaxTypeDescription
     {
-        public LineItemTradeItemTaxInformationTaxTypeDescription TaxTypeDescription { get; set; }
-
-
-        public string ReferenceNumber { get; set; }
-
-
-        public LineItemTradeItemTaxInformationTradeItemTaxAmount TradeItemTaxAmount { get; set; }
-
-
-        public LineItemTradeItemTaxInformationTaxCategory TaxCategory { get; set; }
-
-
-        [XmlIgnore()]
-        public bool TaxCategorySpecified { get; set; }
-    }
-
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemTradeItemTaxInformationTaxTypeDescription
-    {
-
-        [XmlEnum("GST")]
+        /// 
+        [XmlEnumAttribute("GST")]
         Gst,
-
-        [XmlEnum("VAT")]
+        /// 
+        [XmlEnumAttribute("VAT")]
         Vat,
-
-        [XmlEnum("LAC")]
+        /// 
+        [XmlEnumAttribute("LAC")]
         Lac,
-
-        [XmlEnum("AAA")]
+        /// 
+        [XmlEnumAttribute("AAA")]
         Aaa,
-
-        [XmlEnum("ADD")]
+        /// 
+        [XmlEnumAttribute("ADD")]
         Add,
-
-        [XmlEnum("FRE")]
+        /// 
+        [XmlEnumAttribute("FRE")]
         Fre,
-
-        [XmlEnum("LOC")]
+        /// 
+        [XmlEnumAttribute("LOC")]
         Loc,
-
-        [XmlEnum("STT")]
+        /// 
+        [XmlEnumAttribute("STT")]
         Stt,
-
-        [XmlEnum("OTH")]
+        /// 
+        [XmlEnumAttribute("OTH")]
         Oth,
     }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemTradeItemTaxInformationTradeItemTaxAmount
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemTradeItemTaxInformationTaxCategory
     {
-        public decimal TaxPercentage { get; set; }
-
-
-        public decimal TaxAmount { get; set; }
-    }
-
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum LineItemTradeItemTaxInformationTaxCategory
-    {
-
-        [XmlEnum("TRANSFERIDO")]
+        /// 
+        [XmlEnumAttribute("TRANSFERIDO")]
         Transferido,
-
-        [XmlEnum("RETENIDO")]
+        /// 
+        [XmlEnumAttribute("RETENIDO")]
         Retenido,
     }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemTotalLineAmount
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaTotalAllowanceChargeAllowanceOrChargeType
     {
-        public LineItemTotalLineAmountGrossAmount GrossAmount { get; set; }
-
-
-        public LineItemTotalLineAmountNetAmount NetAmount { get; set; }
+        /// 
+        [XmlEnumAttribute("ALLOWANCE")]
+        Allowance,
+        /// 
+        [XmlEnumAttribute("CHARGE")]
+        Charge,
+    }
+    /// 
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaDocumentStatus
+    {
+        /// 
+        [XmlEnumAttribute("ORIGINAL")]
+        Original,
+        /// 
+        [XmlEnumAttribute("COPY")]
+        Copy,
+        /// 
+        [XmlEnumAttribute("REEMPLAZA")]
+        Reemplaza,
+        /// 
+        [XmlEnumAttribute("DELETE")]
+        Delete,
     }
 
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemTotalLineAmountGrossAmount
+    /// 
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaTotalAllowanceChargeSpecialServicesType
     {
-        public decimal Amount { get; set; }
-    }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class LineItemTotalLineAmountNetAmount
-    {
-        public decimal Amount { get; set; }
-    }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class TotalAmount
-    {
-        public decimal Amount { get; set; }
-    }
-
-
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public class TotalAllowanceCharge
-    {
-        public TotalAllowanceChargeSpecialServicesType SpecialServicesType { get; set; }
-
-
-        [XmlIgnore()]
-        public bool SpecialServicesTypeSpecified { get; set; }
-
-
-        public decimal Amount { get; set; }
-
-
-        [XmlIgnore()]
-        public bool AmountSpecified { get; set; }
-
-
-        [XmlAttribute("allowanceOrChargeType")]
-        public TotalAllowanceChargeAllowanceOrChargeType AllowanceOrChargeType { get; set; }
-    }
-
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum TotalAllowanceChargeSpecialServicesType
-    {
-
-        [XmlEnum("AA")]
+        /// 
+        [XmlEnumAttribute("AA")]
         Aa,
-
-        [XmlEnum("ADS")]
+        /// 
+        [XmlEnumAttribute("ADS")]
         Ads,
-
-        [XmlEnum("ADO")]
+        /// 
+        [XmlEnumAttribute("ADO")]
         Ado,
-
-        [XmlEnum("ABZ")]
+        /// 
+        [XmlEnumAttribute("ABZ")]
         Abz,
-
-        [XmlEnum("DA")]
+        /// 
+        [XmlEnumAttribute("DA")]
         Da,
-
-        [XmlEnum("EAA")]
+        /// 
+        [XmlEnumAttribute("EAA")]
         Eaa,
-
-        [XmlEnum("PI")]
+        /// 
+        [XmlEnumAttribute("PI")]
         Pi,
-
-        [XmlEnum("TAE")]
+        /// 
+        [XmlEnumAttribute("TAE")]
         Tae,
-
-        [XmlEnum("SAB")]
+        /// 
+        [XmlEnumAttribute("SAB")]
         Sab,
-
-        [XmlEnum("RAA")]
+        /// 
+        [XmlEnumAttribute("RAA")]
         Raa,
-
-        [XmlEnum("PAD")]
+        /// 
+        [XmlEnumAttribute("PAD")]
         Pad,
-
-        [XmlEnum("FG")]
+        /// 
+        [XmlEnumAttribute("FG")]
         Fg,
-
-        [XmlEnum("FA")]
+        /// 
+        [XmlEnumAttribute("FA")]
         Fa,
-
-        [XmlEnum("TD")]
+        /// 
+        [XmlEnumAttribute("TD")]
         Td,
-
-        [XmlEnum("TS")]
+        /// 
+        [XmlEnumAttribute("TS")]
         Ts,
-
-        [XmlEnum("TX")]
+        /// 
+        [XmlEnumAttribute("TX")]
         Tx,
-
-        [XmlEnum("ZZZ")]
+        /// 
+        [XmlEnumAttribute("ZZZ")]
         Zzz,
-
-        [XmlEnum("VAB")]
+        /// 
+        [XmlEnumAttribute("VAB")]
         Vab,
-
-        [XmlEnum("UM")]
+        /// 
+        [XmlEnumAttribute("UM")]
         Um,
-
-        [XmlEnum("DI")]
+        /// 
+        [XmlEnumAttribute("DI")]
         Di,
-
-        [XmlEnum("ADT")]
+        /// 
+        [XmlEnumAttribute("ADT")]
         Adt,
-
-        [XmlEnum("AJ")]
+        /// 
+        [XmlEnumAttribute("AJ")]
         Aj,
-
-        [XmlEnum("CAC")]
+        /// 
+        [XmlEnumAttribute("CAC")]
         Cac,
-
-        [XmlEnum("COD")]
+        /// 
+        [XmlEnumAttribute("COD")]
         Cod,
-
-        [XmlEnum("EAB")]
+        /// 
+        [XmlEnumAttribute("EAB")]
         Eab,
-
-        [XmlEnum("FC")]
+        /// 
+        [XmlEnumAttribute("FC")]
         Fc,
-
-        [XmlEnum("FI")]
+        /// 
+        [XmlEnumAttribute("FI")]
         Fi,
-
-        [XmlEnum("HD")]
+        /// 
+        [XmlEnumAttribute("HD")]
         Hd,
+        /// 
+        [XmlEnumAttribute("QD")]
+        Qd,
+    }
+    /// 
+    /// 
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaPaymentTermsNetPaymentPaymentTimePeriodTimePeriodDueTimePeriod
+    {
+        /// 
+        [XmlEnumAttribute("DAYS")]
+        Days,
+    }
 
-        [XmlEnum("QD")]
+    /// 
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaAllowanceChargeSpecialServicesType
+    {
+        /// 
+        [XmlEnumAttribute("AA")]
+        Aa,
+        /// 
+        [XmlEnumAttribute("AJ")]
+        Aj,
+        /// 
+        [XmlEnumAttribute("ADO")]
+        Ado,
+        /// 
+        [XmlEnumAttribute("ADT")]
+        Adt,
+        /// 
+        [XmlEnumAttribute("ADS")]
+        Ads,
+        /// 
+        [XmlEnumAttribute("ABZ")]
+        Abz,
+        /// 
+        [XmlEnumAttribute("DA")]
+        Da,
+        /// 
+        [XmlEnumAttribute("EAA")]
+        Eaa,
+        /// 
+        [XmlEnumAttribute("EAB")]
+        Eab,
+        /// 
+        [XmlEnumAttribute("PI")]
+        Pi,
+        /// 
+        [XmlEnumAttribute("TAE")]
+        Tae,
+        /// 
+        [XmlEnumAttribute("SAB")]
+        Sab,
+        /// 
+        [XmlEnumAttribute("RAA")]
+        Raa,
+        /// 
+        [XmlEnumAttribute("PAD")]
+        Pad,
+        /// 
+        [XmlEnumAttribute("FG")]
+        Fg,
+        /// 
+        [XmlEnumAttribute("FA")]
+        Fa,
+        /// 
+        [XmlEnumAttribute("TD")]
+        Td,
+        /// 
+        [XmlEnumAttribute("TS")]
+        Ts,
+        /// 
+        [XmlEnumAttribute("TX")]
+        Tx,
+        /// 
+        [XmlEnumAttribute("TZ")]
+        Tz,
+        /// 
+        [XmlEnumAttribute("ZZZ")]
+        Zzz,
+        /// 
+        [XmlEnumAttribute("VAB")]
+        Vab,
+        /// 
+        [XmlEnumAttribute("UM")]
+        Um,
+        /// 
+        [XmlEnumAttribute("DI")]
+        Di,
+        /// 
+        [XmlEnumAttribute("CAC")]
+        Cac,
+        /// 
+        [XmlEnumAttribute("COD")]
+        Cod,
+        /// 
+        [XmlEnumAttribute("FC")]
+        Fc,
+        /// 
+        [XmlEnumAttribute("FI")]
+        Fi,
+        /// 
+        [XmlEnumAttribute("HD")]
+        Hd,
+        /// 
+        [XmlEnumAttribute("QD")]
+        Qd,
+    }
+
+    /// 
+    [XmlTypeAttribute(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
+    public enum DetallistaLineItemAllowanceChargeSpecialServicesType
+    {
+        /// 
+        [XmlEnumAttribute("AA")]
+        Aa,
+        /// 
+        [XmlEnumAttribute("ADS")]
+        Ads,
+        /// 
+        [XmlEnumAttribute("ADO")]
+        Ado,
+        /// 
+        [XmlEnumAttribute("ABZ")]
+        Abz,
+        /// 
+        [XmlEnumAttribute("DA")]
+        Da,
+        /// 
+        [XmlEnumAttribute("EAA")]
+        Eaa,
+        /// 
+        [XmlEnumAttribute("PI")]
+        Pi,
+        /// 
+        [XmlEnumAttribute("TAE")]
+        Tae,
+        /// 
+        [XmlEnumAttribute("SAB")]
+        Sab,
+        /// 
+        [XmlEnumAttribute("RAA")]
+        Raa,
+        /// 
+        [XmlEnumAttribute("PAD")]
+        Pad,
+        /// 
+        [XmlEnumAttribute("FG")]
+        Fg,
+        /// 
+        [XmlEnumAttribute("FA")]
+        Fa,
+        /// 
+        [XmlEnumAttribute("TD")]
+        Td,
+        /// 
+        [XmlEnumAttribute("TS")]
+        Ts,
+        /// 
+        [XmlEnumAttribute("TX")]
+        Tx,
+        /// 
+        [XmlEnumAttribute("ZZZ")]
+        Zzz,
+        /// 
+        [XmlEnumAttribute("VAB")]
+        Vab,
+        /// 
+        [XmlEnumAttribute("UM")]
+        Um,
+        /// 
+        [XmlEnumAttribute("DI")]
+        Di,
+        /// 
+        [XmlEnumAttribute("ADT")]
+        Adt,
+        /// 
+        [XmlEnumAttribute("AJ")]
+        Aj,
+        /// 
+        [XmlEnumAttribute("CAC")]
+        Cac,
+        /// 
+        [XmlEnumAttribute("COD")]
+        Cod,
+        /// 
+        [XmlEnumAttribute("EAB")]
+        Eab,
+        /// 
+        [XmlEnumAttribute("FC")]
+        Fc,
+        /// 
+        [XmlEnumAttribute("FI")]
+        Fi,
+        /// 
+        [XmlEnumAttribute("HD")]
+        Hd,
+        /// 
+        [XmlEnumAttribute("QD")]
         Qd,
     }
 
 
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum TotalAllowanceChargeAllowanceOrChargeType
-    {
-
-        [XmlEnum("ALLOWANCE")]
-        Allowance,
-
-        [XmlEnum("CHARGE")]
-        Charge,
-    }
-
-
-    [System.SerializableAttribute()]
-    [XmlType(AnonymousType = true, Namespace = "http://www.sat.gob.mx/detallista")]
-    public enum DocumentStatus
-    {
-
-        [XmlEnum("ORIGINAL")]
-        Original,
-
-        [XmlEnum("COPY")]
-        Copy,
-
-        [XmlEnum("REEMPLAZA")]
-        Reemplaza,
-
-        [XmlEnum("DELETE")]
-        Delete,
-    }
 }
