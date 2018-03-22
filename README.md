@@ -1,7 +1,7 @@
 # Facturama-SDK
 Libreria para consumir la API Web de Facturama.
 ## CFDI 3.3
-Creacion de CFDI 3.3,  y Descarga
+Creacion de CFDI 3.3
 ```cs
 var cfdi = new Cfdi
 {
